@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "URW Gothic";
+  src: url("URWGothic-Demi.woff2") format("woff2"),
+    url("URWGothic-Demi.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "URW Gothic";
+  src: url("URWGothic-Book.woff2") format("woff2"),
+    url("URWGothic-Book.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "URW Gothic";
+  src: url("URWGothic-DemiOblique.woff2") format("woff2"),
+    url("URWGothic-DemiOblique.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "URW Gothic";
+  src: url("URWGothic-Demi.woff2") format("woff2"),
+    url("URWGothic-Demi.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "URW Gothic";
+  src: url("URWGothic-Book.woff2") format("woff2"),
+    url("URWGothic-Book.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "URW Gothic";
+  src: url("URWGothic-DemiOblique.woff2") format("woff2"),
+    url("URWGothic-DemiOblique.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "URW Gothic";
+  src: url("URWGothic-BookOblique.woff2") format("woff2"),
+    url("URWGothic-BookOblique.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
