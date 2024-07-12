@@ -1,34 +1,27 @@
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
-export default defineNuxtPlugin((nuxtApp) => {
-  const config = useRuntimeConfig();
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyAw_zaVjIULBfmdjyKTaK96V1pmDhVsdHs",
-    authDomain: "creations-website.firebaseapp.com",
-    projectId: "creations-website",
-    storageBucket: "creations-website.appspot.com",
-    messagingSenderId: "1005206230558",
-    appId: "1:1005206230558:web:edef361c5fa4526a86800f",
-    measurementId: "G-12QMKCYXTY",
-  };
-
-  const app = initializeApp(firebaseConfig);
-
-  const auth = getAuth(app);
-  const firestore = getFirestore(app);
-  const storage = getStorage(app);
+const firebaseConfig = {
+  apiKey: "AIzaSyAxTaH3Zz7kZkIuUSG5UUk_MT6lxnYaxtM",
+  authDomain: "creation-cms.firebaseapp.com",
+  projectId: "creation-cms",
+  storageBucket: "creation-cms.appspot.com",
+  messagingSenderId: "644690099931",
+  appId: "1:644690099931:web:5e716027084f554600d6fe",
+};
 
 
-  nuxtApp.vueApp.provide("auth", auth);
-  nuxtApp.provide("auth", auth);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-  nuxtApp.vueApp.provide("firestore", firestore);
-  nuxtApp.provide("firestore", firestore);
+// Initialize Firebase services
+const db = getFirestore(app);
+const auth = getAuth(app);
 
-  nuxtApp.vueApp.provide("storage", storage);
-  nuxtApp.provide("storage", storage);
-});
+export default (context, inject) => {
+  inject('firebase', { db, auth });
+};
+
+

@@ -20,8 +20,10 @@
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.16",
-    "firebase": "9.15.0",
+    "firebase": "^9.15.0",
     "gsap": "3.12.0",
-    "nuxt-swiper": "^1.1.0"
+    "nuxt-swiper": "^1.1.0",
+    "pinia": "^2.1.7",
+    "vuex": "^4.0.2"
   }
 }
