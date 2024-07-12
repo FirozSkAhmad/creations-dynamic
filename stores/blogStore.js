@@ -2,6 +2,8 @@ import { useNuxtApp } from '#app';
 import { getDocs, collection } from 'firebase/firestore';
 import { defineStore } from 'pinia';
 
+import { db, auth } from '~/plugins/firebase.client';
+
 // Helper function to format dates
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -25,7 +27,7 @@ export const useBlogStore = defineStore('blog', {
     async fetchBlogs() {
       if (this.blogs.length === 0) {  // Only fetch if blogs are not already fetched
         try {
-          const { db } = useNuxtApp().$firebase;
+          // const { db } = useNuxtApp().$firebase;
           const collectionRef = collection(db, "In The Blog");;
           const snapshot = await getDocs(collectionRef);
           this.blogs = snapshot.docs.map(doc => ({
