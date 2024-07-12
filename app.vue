@@ -1,39 +1,48 @@
 <template>
   <ClientOnly>
-    <div class="w-full relative ">
+    <div class="w-full relative">
       <NuxtPage></NuxtPage>
       <A-Header></A-Header>
     </div>
-
   </ClientOnly>
 </template>
 
 <script setup>
-import gsap from 'gsap';
-import Lenis from '@studio-freight/lenis'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import gsap from "gsap";
+import Lenis from "@studio-freight/lenis";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 //#TODO add image moving animation to the the second section
 
+useHead({
+  title: "Creation Furnishings | Premium Curtains & Upholstery in India",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Discover high-quality curtains and upholstery at Creation Furnishings. Explore blackout, sheer, and embroidered curtains, along with premium upholstery fabrics. Serving Hyderabad and all over India.",
+    },
+  ],
+});
+
 onMounted(() => {
   const lenis = new Lenis({
-    smooth: true
-  })
+    smooth: true,
+  });
 
-  lenis.on('scroll', ScrollTrigger.update)
+  lenis.on("scroll", ScrollTrigger.update);
 
   gsap.ticker.add((time) => {
-    lenis.raf(time * 1000)
-  })
+    lenis.raf(time * 1000);
+  });
   function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
+    lenis.raf(time);
+    requestAnimationFrame(raf);
   }
 
-  requestAnimationFrame(raf)
-})
+  requestAnimationFrame(raf);
+});
 </script>
-
 
 <style>
 * {
@@ -45,7 +54,7 @@ onMounted(() => {
 body,
 html {
   width: 100%;
-  font-family: 'URW Gothic';
+  font-family: "URW Gothic";
 }
 
 html.lenis {
