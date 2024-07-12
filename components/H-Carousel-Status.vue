@@ -1,3 +1,4 @@
+<!--
 <template>
     <div class="flex items-center gap-x-5">
         <div class="h-2.5 w-2.5 xl:h-3.5 xl:w-3.5 transition-all duration-700 rounded-full "
@@ -21,8 +22,9 @@
         </div>
 
     </div>
+ 
 </template>
-
+-->
 <script setup>
 const props = defineProps(["currentSlide"])
 </script>

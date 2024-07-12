@@ -1,3 +1,4 @@
+<!--
 <template>
     <transition :name="'slide-out'">
         <NuxtImg v-show="props.index === 0" class="h-full w-full object-cover object-center absolute overflow-x-clip"
@@ -23,6 +24,14 @@
         <NuxtImg v-show="props.index === 4" class="h-full w-full object-cover object-center absolute overflow-x-clip"
             format="webp" src="/images/home-carousel/16.png" alt="slide" />
     </transition>
+</template>
+-->
+
+<template>
+    <video class="h-full w-full object-cover object-center absolute" autoplay loop muted>
+        <source src="/ccccc.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 </template>
 
 <script setup>
