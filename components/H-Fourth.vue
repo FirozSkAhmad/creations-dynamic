@@ -15,6 +15,7 @@
                             :src="blog.imageUrl">
                         </NuxtImg>
                     </div>
+                    
                     <div class="w-[80vw] sm:w-96 lg:w-[40vh] mt-7">
                         <div class="w-full font-semibold text-base lg:text-xl">{{ blog.title }}</div>
                         <div class="mt-4 w-full text-sm lg:text-lg font-semibold text-black text-opacity-30">View More</div>
