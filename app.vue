@@ -7,6 +7,8 @@
   </ClientOnly>
 </template>
 
+
+
 <script setup>
 import gsap from "gsap";
 import Lenis from "@studio-freight/lenis";
@@ -41,6 +43,11 @@ onMounted(() => {
   }
 
   requestAnimationFrame(raf);
+   // Google Analytics tracking code
+   window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EHRG7XD53Z');
 });
 </script>
 
