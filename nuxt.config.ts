@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  
   css: ["~/assets/css/main.css", "~/assets/css/fonts/fonts.css"],
   modules: ["@nuxt/image", "nuxt-simple-sitemap"],
   ssr: false,
@@ -15,7 +14,7 @@ export default defineNuxtConfig({
     public: {
       siteUrl:
         process.env.NUXT_PUBLIC_SITE_URL ||
-        "https://www.creationfurnishings.com/",
+        "https://creation-three.vercel.app/",
       NUXT_API_KEY: process.env.NUXT_API_KEY,
       NUXT_AUTH_DOMAIN: process.env.NUXT_AUTH_DOMAIN,
       NUXT_PROJECT_ID: process.env.NUXT_PROJECT_ID,
@@ -30,8 +29,5 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  plugins: [
-    '~/plugins/firebase.client.js',
-    '~/plugins/pinia.js'
-  ]
+  plugins: ["~/plugins/firebase.client.js", "~/plugins/pinia.js"],
 });
