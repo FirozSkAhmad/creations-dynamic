@@ -43,14 +43,14 @@ onMounted(() => {
   }
 
   requestAnimationFrame(raf);
-   // Google Analytics tracking code
-   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-EHRG7XD53Z');
+  //  // Google Analytics tracking code
+  //  window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+  // gtag('config', 'G-EHRG7XD53Z');
 });
 </script>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js)
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EHRG7XD53Z"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -58,7 +58,7 @@ onMounted(() => {
   gtag('js', new Date());
 
   gtag('config', 'G-EHRG7XD53Z');
-</script>
+</script> -->
 <style>
 * {
   box-sizing: border-box;

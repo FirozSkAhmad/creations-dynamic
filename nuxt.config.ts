@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     public: {
       siteUrl:
         process.env.NUXT_PUBLIC_SITE_URL ||
-        "https://creation-three.vercel.app/",
+        "https://www.creationfurnishings.com/",
       NUXT_API_KEY: process.env.NUXT_API_KEY,
       NUXT_AUTH_DOMAIN: process.env.NUXT_AUTH_DOMAIN,
       NUXT_PROJECT_ID: process.env.NUXT_PROJECT_ID,
@@ -29,5 +29,9 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  plugins: ["~/plugins/firebase.client.js", "~/plugins/pinia.js"],
+  plugins: [
+    "~/plugins/firebase.client.js",
+    "~/plugins/pinia.js",
+    "~/plugins/google-analytics.js",
+  ],
 });
