@@ -1,4 +1,4 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// nuxt.config.ts
 export default defineNuxtConfig({
   css: ["~/assets/css/main.css", "~/assets/css/fonts/fonts.css"],
   modules: ["@nuxt/image", "nuxt-simple-sitemap"],
@@ -6,6 +6,21 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Creation",
+      script: [
+        {
+          src: "https://www.googletagmanager.com/gtag/js?id=G-EHRG7XD53Z",
+          async: true,
+        },
+        {
+          children: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-EHRG7XD53Z');
+          `,
+          type: "text/javascript",
+        },
+      ],
     },
     pageTransition: false,
     layoutTransition: false,
@@ -29,9 +44,5 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  plugins: [
-    "~/plugins/firebase.client.js",
-    "~/plugins/pinia.js",
-    "~/plugins/google-analytics.js",
-  ],
+  plugins: ["~/plugins/firebase.client.js", "~/plugins/pinia.js"],
 });
