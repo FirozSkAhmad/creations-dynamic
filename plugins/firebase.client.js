@@ -20,8 +20,9 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 
-export default (context, inject) => {
-  inject('firebase', { db, auth });
-};
+export default defineNuxtPlugin(nuxtApp => {
+  // Provide the Firebase services
+  nuxtApp.provide('firebase', { db, auth });
+});
 
 
