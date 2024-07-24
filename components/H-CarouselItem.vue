@@ -28,7 +28,7 @@
 -->
 
 <template>
-    <video class="h-full w-full object-cover object-center absolute" autoplay loop muted>
+    <video class="h-full w-full object-cover object-center absolute" autoplay loop muted playsinline>
         <source src="/ccccc.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
