@@ -7,13 +7,13 @@ import { getStorage } from "firebase/storage";
 // const config = useRuntimeConfig();
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAw_zaVjIULBfmdjyKTaK96V1pmDhVsdHs",
-  authDomain: "creations-website.firebaseapp.com",
-  projectId: "creations-website",
-  storageBucket: "creations-website.appspot.com",
-  messagingSenderId: "1005206230558",
-  appId: "1:1005206230558:web:edef361c5fa4526a86800f",
-  measurementId: "G-12QMKCYXTY",
+  apiKey: "AIzaSyAxTaH3Zz7kZkIuUSG5UUk_MT6lxnYaxtM",
+  authDomain: "creation-cms.firebaseapp.com",
+  projectId: "creation-cms",
+  storageBucket: "creation-cms.appspot.com",
+  messagingSenderId: "644690099931",
+  appId: "1:644690099931:web:5e716027084f554600d6fe"
+  // measurementId: "G-12QMKCYXTY",
 };
 
 const app = initializeApp(firebaseConfig);

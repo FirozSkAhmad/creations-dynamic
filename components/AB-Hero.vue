@@ -4,8 +4,6 @@
             <video src="/creating-magin.mp4" autoplay muted playsinline=""
                 class="w-full object-cover rounded-xl h-full"></video>
         </div>
-
-        
     </div>
 </template>
 

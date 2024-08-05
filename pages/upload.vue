@@ -3,23 +3,31 @@
         style="background-image: url('https://images.pexels.com/photos/1487834/pexels-photo-1487834.jpeg');">
         <div class="flex flex-col lg:flex-row items-center justify-center w-full h-screen backdrop-blur-3xl">
             <div class="bg-white rounded-lg shadow-lg p-8 max-w-md flex flex-col" style="backdrop-filter: blur(5px)">
-                <form @submit.prevent="uploadSubmit"><label class="block mb-2 font-bold text-gray-700"
-                        for="title">Title:</label><input ref="itemTitle"
-                        class="bg-gray-200 rounded-lg px-3 py-2 mb-8 w-full" type="text" id="title" name="title"
-                        placeholder="Enter the title of your files"><label class="block mb-2 font-bold text-gray-700"
-                        for="pdf">PDF File:</label><input ref="pdfFile" @change="triggerPdfChange"
+                <form @submit.prevent="uploadSubmit">
+                    <label class="block mb-2 font-bold text-gray-700"
+                        for="title">Title:</label>
+                    <input v-model="itemTitle"
+                        class="bg-gray-200 rounded-lg px-3 py-2 mb-8 w-full  hover:border-blue-500 focus:border-blue-500"
+                         type="text" id="title" name="title" placeholder="Enter the title of your files" />
+                    <label class="block mb-2 font-bold text-gray-700"
+                        for="pdf">PDF File:</label>
+                    <input ref="pdfFile" @change="triggerPdfChange"
                         class="bg-transparent rounded-lg px-3 py-2 mb-8 w-full h-12 appearance-none" type="file" id="pdf"
-                        name="pdf"><label class="block mb-2 font-bold text-gray-700" for="image">Image:</label><input
-                        @change="triggerImageChange" ref="imgFile"
-                        class="bg-transparent rounded-lg px-3 py-2 mb-8 w-full h-12 appearance-none" type="file" id="image"
-                        name="image"><label class="block mb-2 font-bold text-gray-700"
-                        for="category">Category:</label><select @change="triggerCategorySelect" ref="CategoriesTypeSelect"
+                        name="pdf" />
+                    <label class="block mb-2 font-bold text-gray-700" for="image">Image:</label>
+                    <input ref="imgFile" @change="triggerImageChange" 
+                        class="bg-transparent rounded-lg px-3 py-2 mb-8 w-full h-12 appearance-none" type="file" id="image" 
+                        name="image" />
+                    <label class="block mb-2 font-bold text-gray-700"
+                        for="category">Category:</label>
+                    <select @change="triggerCategorySelect" ref="CategoriesTypeSelect"
                         class="bg-gray-200 rounded-lg px-3 py-2 mb-8 w-full h-12 appearance-none" id="category"
                         name="category">
                         <option value="curtains">Curtains</option>
                         <option value="upholstery">Upholstery</option>
-                    </select><label class="block mb-2 font-bold text-gray-700" for="type">Type:</label><select
-                        v-if="TypeSelectRender" ref="TypeSelect" @change="triggerTypeSelect"
+                    </select>
+                    <label class="block mb-2 font-bold text-gray-700" for="type">Type:</label>
+                    <select v-if="TypeSelectRender" ref="TypeSelect" @change="triggerTypeSelect"
                         class="bg-gray-200 rounded-lg px-3 py-2 mb-8 w-full h-12 appearance-none" id="type" name="type">
                         <option value="design">Design</option>
                         <option value="plain">Plain</option>
@@ -61,32 +69,33 @@
  
 <script setup>
 import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router'
 import { collection, addDoc } from "firebase/firestore";
 import { ref as storageRef, uploadBytes } from 'firebase/storage'
 
 
 const { $storage, $firestore, $auth } = useNuxtApp()
 const router = useRouter()
-const TypeSelect = ref(null)
-const CategoriesTypeSelect = ref(null)
+const TypeSelect = ref('')
+const CategoriesTypeSelect = ref('')
 const uploadReadyState = ref(true)
 const TypeSelectRender = ref(false)
-const pdfFile = ref(null)
-const imgFile = ref(null)
-const pdfPreview = ref(null)
-const imgPreview = ref(null)
-const itemTitle = ref(null)
+const pdfFile = ref('')
+const imgFile = ref('')
+const pdfPreview = ref('')
+const imgPreview = ref('')
+const itemTitle = ref('')
 
 const triggerTypeSelect = () => {
     //  console.log('triggers select')
-    console.log(TypeSelect.value.value)
+    console.log(TypeSelect.value)
 }
 
 const triggerCategorySelect = () => {
     // console.log('category trigger triggered')
-    console.log(CategoriesTypeSelect.value.value)
+    console.log(CategoriesTypeSelect.value)
 
-    if (CategoriesTypeSelect.value.value == 'curtains') {
+    if (CategoriesTypeSelect.value == 'curtains') {
         TypeSelectRender.value = false
     } else {
         TypeSelectRender.value = true
@@ -95,7 +104,7 @@ const triggerCategorySelect = () => {
 
 
 const triggerPdfChange = async () => {
-    console.log(pdfFile.value.value)
+    console.log(pdfFile.value)
     const file = pdfFile.value.files[0]
     const fileUrl = URL.createObjectURL(file)
     const reader = new FileReader()
@@ -106,7 +115,7 @@ const triggerPdfChange = async () => {
 
 
 const triggerImageChange = async () => {
-    console.log(imgFile.value.value)
+    console.log(imgFile.value)
     const file = imgFile.value.files[0]
     const fileUrl = URL.createObjectURL(file)
     const reader = new FileReader()
@@ -118,9 +127,9 @@ const triggerImageChange = async () => {
 const uploadSubmit = async () => {
     uploadReadyState.value = false
     const submitObject = {
-        title: itemTitle.value.value,
-        category: CategoriesTypeSelect.value.value,
-        type: TypeSelect.value.value,
+        title: itemTitle.value,
+        category: CategoriesTypeSelect.value,
+        type: TypeSelect.value,
         imgFileName: imgFile.value.files[0].name,
         pdfFileName: pdfFile.value.files[0].name
     }
@@ -147,8 +156,8 @@ const uploadSubmit = async () => {
 
 onMounted(() => {
     console.log($auth.currentUser)
-    if ($auth.currentUser == null) router.replace('/login')
-    console.log(CategoriesTypeSelect.value.value)
-    console.log(TypeSelect.value.value)
+    if ($auth.currentUser == null) router.push('/login')
+    console.log(CategoriesTypeSelect.value)
+    console.log(TypeSelect.value)
 })
 </script>
