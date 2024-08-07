@@ -2,7 +2,7 @@
     <div class="bg-center bg-cover bg-no-repeat"
         style="background-image: url('https://images.pexels.com/photos/1487834/pexels-photo-1487834.jpeg');">
         <div class="flex flex-col lg:flex-row items-center justify-center w-full h-screen backdrop-blur-3xl">
-            <div class="bg-white rounded-lg shadow-lg p-8 max-w-md flex flex-col" style="backdrop-filter: blur(5px)">
+            <div class="bg-white rounded-lg shadow-lg p-8 max-w-md flex flex-col" style="backdrop-filter: blur(5px);margin-top: 6rem;">
                 <form @submit.prevent="uploadSubmit">
                     <label class="block mb-2 font-bold text-gray-700"
                         for="title">Title:</label>
